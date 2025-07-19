@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Star Juniors Level 1 - Abacus Test</title>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(to right, #fceabb, #f8b500);
+          padding: 30px;
+          margin: 0;
+        }
+        h1, h2 {
+          text-align: center;
+          margin: 0;
+          padding: 5px;
+        }
+        h1 {
+          color: #ffffff;
+          background-color: #ff6f61;
+          border-radius: 10px;
+          padding: 10px 0;
+        }
+        h2 {
+          color: #333;
+          background-color: #ffe9c7;
+          border-radius: 10px;
+          margin-top: 10px;
+          padding: 10px;
+        }
+        table {
+          width: 100%;
+          margin-bottom: 20px;
+          border-collapse: collapse;
+          background-color: #fff;
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+        th {
+          background-color: #ffb347;
+          color: Black;
+          font-size: 16px;
+          padding: 10px;
+        }
+        td {
+          border: 1px solid #ddd;
+          text-align: center;
+          padding: 10px;
+          font-size: 16px;
+          background-color: #fef9f4;
+        }
+        input[type="text"] {
+          width: 80%;
+          padding: 8px;
+          font-size: 16px;
+          border: 2px solid #ccc;
+          border-radius: 6px;
+          text-align: center;
+        }
+        #timer {
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+          color: #d9534f;
+          background-color: #fff3cd;
+          border: 2px solid #ffeeba;
+          border-radius: 10px;
+          padding: 10px;
+          margin-bottom: 20px;
+        }
+        .submit-btn {
+          display: block;
+          margin: 20px auto;
+          padding: 15px 30px;
+          background-color: #28a745;
+          color: white;
+          border: none;
+          font-size: 18px;
+          border-radius: 10px;
+          cursor: pointer;
+          box-shadow: 0 4px #218838;
+          transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+          background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BASHYAM LITTLE CHAMPS</h1>
+    <h2>FORMATIVE ASSESSMENT - 1</h2>
+    <h2>SUBJECT: ABACUS | LEVEL - Star Juniors Level-1 | TIME: 3 MINS</h2>
+
+    <div id="timer">Time Left: 3:00</div>
+
+    <form id="abacusTestForm">
+    <input type="hidden" name="Name" id="studentNameInput">
+    <input type="hidden" name="Class" id="studentClassInput">
+    <input type="hidden" name="Section" id="studentSectionInput">
+    <input type="hidden" name="Branch" id="studentBranchInput">
+    <input type="hidden" name="Level" id="studentLevelInput">
+
+    <input type="hidden" name="formType" value="testSubmission">
+
+        <table>
+            <tr><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Q5</th></tr>
+            <tr><td>04<br>05</td><td>03<br>05</td><td>07<br>02</td><td>08<br>01</td><td>02<br>07</td></tr>
+            <tr>
+                <td><input type="text" name="Q1"></td><td><input type="text" name="Q2"></td>
+                <td><input type="text" name="Q3"></td><td><input type="text" name="Q4"></td>
+                <td><input type="text" name="Q5"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr><th>Q6</th><th>Q7</th><th>Q8</th><th>Q9</th><th>Q10</th></tr>
+            <tr><td>02<br>01<br>-01</td><td>03<br>05<br>01</td><td>01<br>01<br>01</td><td>06<br>01<br>02</td><td>01<br>07<br>01</td></tr>
+            <tr>
+                <td><input type="text" name="Q6"></td><td><input type="text" name="Q7"></td>
+                <td><input type="text" name="Q8"></td><td><input type="text" name="Q9"></td>
+                <td><input type="text" name="Q10"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr><th>Q11</th><th>Q12</th><th>Q13</th><th>Q14</th><th>Q15</th></tr>
+            <tr><td>27<br>01<br>01</td><td>42<br>05<br>01</td><td>55<br>02<br>02</td><td>12<br>06<br>01</td><td>30<br>07<br>01</td></tr>
+            <tr>
+                <td><input type="text" name="Q11"></td><td><input type="text" name="Q12"></td>
+                <td><input type="text" name="Q13"></td><td><input type="text" name="Q14"></td>
+                <td><input type="text" name="Q15"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr><th>Q16</th><th>Q17</th><th>Q18</th><th>Q19</th><th>Q20</th></tr>
+            <tr><td>01<br>02<br>05<br>01</td><td>06<br>01<br>01<br>01</td><td>01<br>06<br>01<br>01</td><td>05<br>01<br>01<br>02</td><td>02<br>05<br>01<br>01</td></tr>
+            <tr>
+                <td><input type="text" name="Q16"></td><td><input type="text" name="Q17"></td>
+                <td><input type="text" name="Q18"></td><td><input type="text" name="Q19"></td>
+                <td><input type="text" name="Q20"></td>
+            </tr>
+        </table> 
+
+        <button type="submit" class="submit-btn">Submit Test</button>
+
+          <input type="hidden" name="TimeTaken" id="timeTaken">
+          <input type="hidden" name="ExtraTime" id="extraTime">
+    </form>
+
+    <script>
+        let totalSeconds = 180;
+        let timeTaken = 0;
+        const timerDisplay = document.getElementById("timer");
+        const form = document.getElementById("abacusTestForm");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const storedData = localStorage.getItem("studentDetailsForTest");
+            if (storedData) {
+                const studentDetails = JSON.parse(storedData);
+                document.getElementById("studentNameInput").value = studentDetails.Name || "";
+                document.getElementById("studentClassInput").value = studentDetails.Class || "";
+                document.getElementById("studentSectionInput").value = studentDetails.Section || "";
+                document.getElementById("studentBranchInput").value = studentDetails.Branch || "";
+                document.getElementById("studentLevelInput").value = studentDetails.Level || "";
+            } else {
+                console.warn("No student details found in localStorage. The form might not submit correctly.");
+                alert("Student information missing. Please start the test again from the registration page.");
+
+            }
+        });
+
+        const timer = setInterval(() => {
+            timeTaken++;
+            if (totalSeconds > 0) {
+                totalSeconds--;
+                const minutes = Math.floor(totalSeconds / 60);
+                const seconds = totalSeconds % 60;
+                timerDisplay.textContent = Time Left: ${minutes}:${seconds.toString().padStart(2, "0")};
+            } else {
+                timerDisplay.textContent = "Extra Time Started!";
+                timerDisplay.style.color = "green";
+            }
+        }, 1000);
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            clearInterval(timer);
+
+            const timeTakenInput = document.getElementById("timeTaken");
+            const extraTimeInput = document.getElementById("extraTime");
+
+            if (timeTaken <= 180) {
+                timeTakenInput.value = ${Math.floor(timeTaken / 60)}m ${timeTaken % 60}s;
+                extraTimeInput.value = "0s";
+            } else {
+                timeTakenInput.value = 3m 0s; 
+                const extra = timeTaken - 180;
+                extraTimeInput.value = ${Math.floor(extra / 60)}m ${extra % 60}s;
+            }
+
+            const scriptURL = "https://script.google.com/macros/s/AKfycbwBR16ciKFhUhoOAFE3or2LL9wXg1MG-5q1qTgcK7_svneXZQGwhjuWBvRurJJfVz0O/exec";
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: new FormData(form),
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Test submission response:", data);
+                if (data.status === "success") {
+                    alert("Test submitted successfully!");
+:
+                    location.reload();
+                } else {
+                    alert("Submission failed: " + (data.message || "Unknown error"));
+                }
+            })
+            .catch(err => {
+                alert("There was an error submitting the test. Please try again.");
+                console.error("Submission error:", err);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  .form-container {	
+    max-width: 500px;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    text-align: center;
+    color: #003F5C;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-top: 20px;
+    background-color: #003F5C;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #00263b;
+  }
+</style>
+
+<div class="form-container">
+  <h2>Abacus Test Registration</h2>
+  <form id="abacusForm"> <label>Student Name: 
+    <input type="text" name="Name" required></label>
+
+    <label for="class">Class</label>
+    <input type="text" name="Class" required>
+
+    <label for="section">Section</label>
+    <input type="text" name="Section" required />
+
+    <label for="branch">Branch</label>
+    <select name="Branch" required>
+      <option value="">-- Select Branch --</option>
+      <option value="Palakollu">Palakollu</option>
+      <option value="Branch B">Branch B</option>
+      <option value="Branch C">Branch C</option>
+      <option value="Branch D">Branch D</option>
+      <option value="Branch E">Branch E</option>
+    </select>
+
+    <label for="level">Level</label>
+    <select name="Level" required >
+      <option value="">-- Select Level --</option>
+      <option value="Star Juniors Level-1">Star Juniors Level-1</option>
+      <option value="junior Level-1">Juniors Level-1</option>
+      <option value="Senior Level-1">Seniors Level-1</option>
+    </select>
+
+    <button type="submit">Start Test</button>
+  </form>
+ 
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwBR16ciKFhUhoOAFE3or2LL9wXg1MG-5q1qTgcK7_svneXZQGwhjuWBvRurJJfVz0O/exec";
+  const form = document.getElementById("abacusForm");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const selectedLevel = formData.get("Level"); 
+
+    const studentDataToSave = {
+      Name: formData.get("Name"),
+      Class: formData.get("Class"),
+      Section: formData.get("Section"),
+      Branch: formData.get("Branch"),
+      Level: formData.get("Level") 
+    };
+
+    localStorage.setItem("studentDetailsForTest", JSON.stringify(studentDataToSave));
+
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.textContent = "Submitting...";
+    submitButton.disabled = true;
+
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("Apps Script response from form submission:", data);
+
+      if (data.status === "success" && data.type === "form_submission") {
+        const levelUrls = {
+          "Star Juniors Level-1": "https://www.vedutech.com/star-juniors-level-1/",
+          "junior Level-1": "https://www.vedutech.com/juniors-level-1/",
+          "Senior Level-1": "https://www.vedutech.com/seniors-level-1/"
+        };
+        const redirectUrl = levelUrls[data.level]; 
+
+        if (redirectUrl) {
+          window.location.href = redirectUrl; 
+        } else {
+          alert("Selected level URL not found. Please contact support.");
+          submitButton.textContent = "Start Test";
+          submitButton.disabled = false;
+        }
+      } else {
+        alert("Form submission failed. Please try again.");
+        submitButton.textContent = "Start Test";
+        submitButton.disabled = false;
+      }
+    })
+    .catch(error => {
+      console.error("Error submitting the form:", error);
+      alert("There was an error submitting the form. Please try again.");
+      submitButton.textContent = "Start Test";
+      submitButton.disabled = false;
+    });
+  });
+</script>
+   
+</div>
